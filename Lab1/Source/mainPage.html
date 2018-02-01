@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Information in headding-->
+    <meta charset="UTF-8">
+    <title>Class Selection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="mainJS.js"></script>
+</head>
+<body>
+<!--User Input and headding-->
+<div id="heading1" style="padding: 10px">
+<h2>Courses to Take</h2>
+<h5>Education Level</h5>
+<select id="edLevel">
+    <option value="bachelor">Bachelor</option>
+    <option value="master">Master</option>
+</select>
+<h5>Semester</h5>
+<select id="sem">
+    <option value="Spring">Spring</option>
+    <option value="Fall">Fall</option>
+    <option value="Summer">Summer</option>
+</select>
+<h5>Major</h5>
+<select id="degree">
+    <option value="CS">Computer Science</option>
+    <option value="Law">Law</option>
+</select>
+    <!--Button to execute viewing the course-->
+    <button onclick="changeCourse()" type="button" class="btn">Basic</button>
+</div>
+<!--Display for information and panels-->
+<!--
+Example of class
+img1=image
+name1=Name of course
+ins1=Instructor
+desc1=description
+pre1=Prerequisites
+ch1=credit hours
+dur1=Duration of class
+rev1=Review and Rating
+but1=Button to Register for class
+-->
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <img id="img1" src=""/>
+            <b><p id="name1"></p></b>
+            <p id="ins1"></p>
+            <p id="desc1"></p>
+            <p id="pre1"></p>
+            <p id="ch1"></p>
+            <p id="dur1"></p>
+            <p id="rev1"></p>
+            <a id="but1"></a>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div class="panel-body">
+                <img id="img2" src=""/>
+                <b><p id="name2"></p></b>
+                <p id="ins2"></p>
+                <p id="desc2"></p>
+                <p id="pre2"></p>
+                <p id="ch2"></p>
+                <p id="dur2"></p>
+                <p id="rev2"></p>
+                <a id="but2"></a>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div class="panel-body">
+                <div class="panel-body">
+                    <img id="img3" src=""/>
+                    <b><p id="name3"></p></b>
+                    <p id="ins3"></p>
+                    <p id="desc3"></p>
+                    <p id="pre3"></p>
+                    <p id="ch3"></p>
+                    <p id="dur3"></p>
+                    <p id="rev3"></p>
+                    <a id="but3"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
