@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Home Page</title>
+    <script>
+        //Initializes script
+        $(document).ready(function(){
+
+
+            $("#searchButton").click(function(){
+                var searchField = $('#textBox').val();
+                $.ajax({
+                    url: 'https://newsapi.org/v2/everything?q=' + searchField+'&from=2018-0205&sortBy=popularity&apiKey=9e4b4e7b43514fff99d45e510434098b',
+                    success: function (result) {
+                        //var t = result.articles.length;
+                        var author = result.articles[1].author;
+                        var photo = result.articles[1].urlToImage;
+                        var title = result.articles[1].title;
+                        var timeStamp = result.articles[1].publishedAt;
+                        var url= result.articles[1].url;
+                        var author1 = result.articles[2].author;
+                        var photo1 = result.articles[2].urlToImage;
+                        var title1 = result.articles[2].title;
+                        var timeStamp1 = result.articles[2].publishedAt;
+                        var url1 = result.articles[2].url;
+                        var author2 = result.articles[3].author;
+                        var photo2 = result.articles[3].urlToImage;
+                        var title2 = result.articles[3].title;
+                        var timeStamp2 = result.articles[3].publishedAt;
+                        var url2 = result.articles[3].url;
+                        console.log(result);
+
+                       // $("#display").html('<p>' + title + '</p>'+ '<p>' + author + '</p><a href='+url + ' target="_blank">' +'<img src='+photo+' class="rounded" width="400" height="250"></img></a>' +'<p>' + timeStamp + '</p>');
+                        $("#carousel1").html('<p>' + title + '</p>'+ '<p>' + author + '</p><a href='+url + ' target="_blank">' +'<img src='+photo+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp + '</p>');
+                        $("#carousel2").html('<p>' + title1 + '</p>'+ '<p>' + author1 + '</p><a href='+url1 + ' target="_blank">' +'<img src='+photo1+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp1 + '</p>');
+                        $("#carousel3").html('<p>' + title2 + '</p>'+ '<p>' + author2 + '</p><a href='+url2 + ' target="_blank">' +'<img src='+photo2+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp2 + '</p>');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+
+                        $("#display").html('<h3>ITEM NOT FOUND</h3>')
+                    }
+
+                });
+            });
+
+
+            //Source Button
+            $("#sourcehButton").click(function(){
+                var searchField = $('#textBoxSource').val();
+                $.ajax({
+                    url: 'https://newsapi.org/v2/everything?sources='+searchField+'&apiKey=9e4b4e7b43514fff99d45e510434098b',
+                    success: function (result) {
+                        //var t = result.articles.length;
+                        var author = result.articles[1].author;
+                        var photo = result.articles[1].urlToImage;
+                        var title = result.articles[1].title;
+                        var timeStamp = result.articles[1].publishedAt;
+                        var url= result.articles[1].url;
+                        var author1 = result.articles[2].author;
+                        var photo1 = result.articles[2].urlToImage;
+                        var title1 = result.articles[2].title;
+                        var timeStamp1 = result.articles[2].publishedAt;
+                        var url1 = result.articles[2].url;
+                        var author2 = result.articles[3].author;
+                        var photo2 = result.articles[3].urlToImage;
+                        var title2 = result.articles[3].title;
+                        var timeStamp2 = result.articles[3].publishedAt;
+                        var url2 = result.articles[3].url;
+                        console.log(result);
+
+                        // $("#display").html('<p>' + title + '</p>'+ '<p>' + author + '</p><a href='+url + ' target="_blank">' +'<img src='+photo+' class="rounded" width="400" height="250"></img></a>' +'<p>' + timeStamp + '</p>');
+                        $("#carousel1").html('<p>' + title + '</p>'+ '<p>' + author + '</p><a href='+url + ' target="_blank">' +'<img src='+photo+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp + '</p>');
+                        $("#carousel2").html('<p>' + title1 + '</p>'+ '<p>' + author1 + '</p><a href='+url1 + ' target="_blank">' +'<img src='+photo1+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp1 + '</p>');
+                        $("#carousel3").html('<p>' + title2 + '</p>'+ '<p>' + author2 + '</p><a href='+url2 + ' target="_blank">' +'<img src='+photo2+' class="rounded" width="1200" height="750"></img></a>' +'<p>' + timeStamp2 + '</p>');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+
+                        $("#display").html('<h3>ITEM NOT FOUND</h3>')
+                    }
+
+                });
+            });
+
+        });
+    </script>
+    <style>
+        jumbotron-fluid{
+            background-color: purple;
+        }
+        #archie{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+
+<div id="archie" class="jumbotron jumbotron-fluid">
+    <div align="center" id="topLayer" class="container">
+        <h1>BBC News Page</h1>
+        <p>Search for top News Stories</p>
+    </div>
+</div>
+<div class="container">
+    <!--Seach By Article-->
+    <h5>Search by Article</h5>
+    <div class="form-group">
+        <span><input type="text" placeholder="Enter Information to Search" class="form-control" id="textBox"><button id="searchButton" class="btn btn-success">Search</button></span>
+
+    </div>
+    <br>
+    <!--Search by Source-->
+    <h5>Search by Source</h5>
+    <div class="form-group">
+        <span><input type="text" placeholder="Enter Source to Search" class="form-control" id="textBoxSource"><button id="sourcehButton" class="btn btn-success">Search Souce</button></span>
+
+    </div>
+
+    <div align="center">
+        <div id="display"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!--Carousel usage for display-->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <div align="center" class="carousel-inner">
+            <div id="carousel1" class="carousel-item active">
+            </div>
+            <div id="carousel2" class="carousel-item">
+            </div>
+            <div id="carousel3" class="carousel-item">
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+</body>
+</html>
