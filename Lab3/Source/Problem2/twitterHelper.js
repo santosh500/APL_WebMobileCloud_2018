@@ -19,14 +19,14 @@ client.get('friends/list', params, function(error, tweets, response) {
 
         var myJSON = JSON.stringify(tweets);
         var obj = JSON.parse(myJSON);
-        var tacos = obj.users;
-        mainArray = tacos;
+        var mainVal = obj.users;
+        mainArray = mainVal;
         module.exports.myArray = mainArray;
-        for(i=0; i<tacos.length; i++)
+        for(i=0; i<mainVal.length; i++)
         {
-            console.log(tacos[i].screen_name);
+            console.log(mainVal[i].screen_name);
             var server=http.createServer(function(req,res){
-                res.writeHead(tacos[i].screen_name, {'Content-Type': 'text/html'});
+                res.writeHead(mainVal[i].screen_name, {'Content-Type': 'text/html'});
                 var myReadStream = fs.createReadStream(_dirname + '/index.html', 'utf8');
                 myReadStream.pipe(res);
             });
