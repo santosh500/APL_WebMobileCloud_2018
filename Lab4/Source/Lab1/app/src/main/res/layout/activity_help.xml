@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_xxxhdpi5"
+    tools:context="com.example.santosh.lab1.Help">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help Page"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="282dp"
+        android:layout_height="152dp"
+        android:text="Register: Go to the Sign Up Page and Sign Up with First and Last Name as well as Username and Password"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="275dp"
+        android:layout_height="92dp"
+        android:text="Sign In: Sign in with the credentials or use Google Sign In"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="257dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="275dp"
+        android:layout_height="92dp"
+        android:text="Application (Index Page): Access Home, Settings, and Help"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="367dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginBottom="19dp" />
+
+
+</android.widget.RelativeLayout>
