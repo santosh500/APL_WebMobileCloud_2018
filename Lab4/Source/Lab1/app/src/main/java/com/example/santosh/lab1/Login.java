@@ -22,6 +22,28 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 //References from https://developers.google.com/identity/sign-in/android/sign-in were used in this project for Google Sign-In
+/Code was derived and referenced from Google Developers: https://developers.google.com/identity/sign-in/android/sign-in
+//Code was derived and referenced from Google Developers: (Github Link)https://github.com/googlesamples/google-services/blob/master/android/signin/app/src/main/java/com/google/samples/quickstart/signin/SignInActivity.java#L51-L55
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.sign_in_button:
+                signIn();
+                break;
+            case R.id.button:
+                signOut();
+                break;
+
+        }
+    }
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+}
+
 public class Login extends AppCompatActivity implements GoogleSignInOptionsExtension, GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     //General fields for Google Sign In (GoogleApiClient)
@@ -103,6 +125,28 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
     }
 
     //Onclick feature taken from (https://developers.google.com/identity/sign-in/android/sign-in)
+//Code was derived and referenced from Google Developers: https://developers.google.com/identity/sign-in/android/sign-in
+    //Code was derived and referenced from Google Developers: (Github Link)https://github.com/googlesamples/google-services/blob/master/android/signin/app/src/main/java/com/google/samples/quickstart/signin/SignInActivity.java#L51-L55
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.sign_in_button:
+                signIn();
+                break;
+            case R.id.button:
+                signOut();
+                break;
+
+        }
+    }
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+}
+
     @Override
     public void onClick( View v) {
         switch (v.getId()) {
