@@ -15,12 +15,14 @@ public class RegisterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
+        //Initiazlize EditText fields from layout xml
         username = (EditText) findViewById(R.id.Username);
         password = (EditText) findViewById(R.id.editText9);
         firstName = (EditText) findViewById(R.id.editText5);
         lastName = (EditText) findViewById(R.id.editText6);
     }
 
+    //Obtain username, password, firstName, and lastName from one intent to the Login
     public void register(View v)
     {
 

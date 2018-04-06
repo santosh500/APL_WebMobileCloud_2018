@@ -13,6 +13,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Obtain username, password, firstName, and lastName from Login to the Home Page
         username = getIntent().getStringExtra("username");
         password = getIntent().getStringExtra("password");
         firstname = getIntent().getStringExtra("firstname");

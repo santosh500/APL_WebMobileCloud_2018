@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class Help extends AppCompatActivity {
 
+    //Not much implementation much because this page wasn't interactive
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -21,8 +21,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+//References from https://developers.google.com/identity/sign-in/android/sign-in were used in this project for Google Sign-In
 public class Login extends AppCompatActivity implements GoogleSignInOptionsExtension, GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
+    //General fields for Google Sign In (GoogleApiClient)
     private GoogleApiClient mGoogleApiClient;
     private static final int SignInParam = 9001;
     private TextView mStatusTextView;
@@ -39,11 +41,13 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
                 .requestEmail()
                 .build();
 
+        //Initialize GoogleApiClient
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */,this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+        //Initialize SignInButton from Google
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
@@ -56,6 +60,7 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
         lastname = getIntent().getStringExtra("lastname");
     }
 
+    //Main Login function
     public void login(View v)
     {
 
@@ -63,6 +68,7 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
         pw = (EditText) findViewById(R.id.editText3);
         if(un.getText().toString().equals(username) && pw.getText().toString().equals(password))
         {
+            //Obtain username, password, firstName, and lastName from one intent to the Home Page
             Intent indexPage = new Intent(Login.this, Index.class);
             indexPage.putExtra("username",username);
             indexPage.putExtra("password", password);
@@ -79,13 +85,14 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
 
     }
 
+    //Main Sign-in function taken from (https://developers.google.com/identity/sign-in/android/sign-in)
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);;
         startActivityForResult(signInIntent, SignInParam);
     }
 
+    //Main Sign-out function taken from (https://developers.google.com/identity/sign-in/android/sign-in)
     public void signOut() {
-        Log.i("HOWDY","TACOS");
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -95,6 +102,7 @@ public class Login extends AppCompatActivity implements GoogleSignInOptionsExten
                 });
     }
 
+    //Onclick feature taken from (https://developers.google.com/identity/sign-in/android/sign-in)
     @Override
     public void onClick( View v) {
         switch (v.getId()) {
