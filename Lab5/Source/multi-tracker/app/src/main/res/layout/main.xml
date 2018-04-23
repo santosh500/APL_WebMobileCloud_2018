@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="com.google.android.gms.samples.vision.face.multitracker">
+
+  <com.google.android.gms.samples.vision.face.multitracker.ui.camera.CameraSourcePreview
+      android:id="@+id/preview"
+      android:layout_width="500dp"
+      android:layout_height="400dp">
+
+    <com.google.android.gms.samples.vision.face.multitracker.ui.camera.GraphicOverlay
+        android:id="@+id/faceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+  </com.google.android.gms.samples.vision.face.multitracker.ui.camera.CameraSourcePreview>
+
+  <Button
+      style="@style/Widget.AppCompat.Button"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      android:onClick="goActivity"
+      android:text="Click" />
+</LinearLayout>
