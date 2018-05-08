@@ -9,15 +9,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SQLLiteDB extends SQLiteOpenHelper{
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Questions.db";
+    public static final String DATABASE_NAME = "CourseDefinitions.db";
 
 
-    public static final String TABLE_NAME = "contact";
-    public static final String COLUMN_ID = "contact_id";
-    public static final String COLUMN_NAME = "contact_name";
-    public static final String COLUMN_CATEGORY = "contact_category";
+    public static final String TABLE_NAME = "courses";
+    public static final String COLUMN_ID = "course_id";
+    public static final String COLUMN_NAME = "course_name";
+    public static final String COLUMN_TEXT = "course_text";
 
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NAME + " TEXT, " + COLUMN_CATEGORY + " TEXT )";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NAME + " TEXT, " + COLUMN_TEXT+ " TEXT )";
 
 
     private static final String SQL_DELETE_ENTRIES =
@@ -54,7 +54,7 @@ public class SQLLiteDB extends SQLiteOpenHelper{
         // Create map of values
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, name);
-        values.put(COLUMN_CATEGORY, category);
+        values.put(COLUMN_TEXT, category);
         // Insert row (returns primary key)
         SQLiteDatabase db = getWritableDatabase();
         long rowId = db.insert(TABLE_NAME, null, values);
@@ -65,7 +65,7 @@ public class SQLLiteDB extends SQLiteOpenHelper{
         String[] cols = {
                 COLUMN_ID,
                 COLUMN_NAME,
-                COLUMN_CATEGORY};
+                COLUMN_TEXT};
 
         String sortOrder = COLUMN_NAME + " ASC";
 
@@ -84,18 +84,14 @@ public class SQLLiteDB extends SQLiteOpenHelper{
 
     public void update(int id, String name, String category){
 
-        //fill this method to update the row
-
-        // value map
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, name);
-        values.put(COLUMN_CATEGORY, category);
+        values.put(COLUMN_TEXT, category);
 
         // Get rowid to update that row
         String whereClause = COLUMN_ID + " = ?";
         String[] args = { String.valueOf(id) };
 
-        //returns #rows updated
         SQLiteDatabase db = getReadableDatabase();
         int count = db.update(
                 TABLE_NAME,

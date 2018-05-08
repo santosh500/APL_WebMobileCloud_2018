@@ -55,52 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 if(i==TextToSpeech.SUCCESS)
                 {
                     result=toSpeech.setLanguage(Locale.UK);
-                    Toast.makeText(getApplicationContext(),"WINNER",Toast.LENGTH_LONG).show();
                 }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Feature nto supported in your device", Toast.LENGTH_LONG).show();
-                }
+
             }
         });
     }
 
-    public void TTS(View view)
-    {
-        switch(view.getId())
-        {
-            case R.id.button:
-                if(result==TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
-                {
-                    Toast.makeText(getApplicationContext(),"Feature nto supported in your device", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    text = editText.getText().toString();
-                    sqlLiteDB.create(text,"Python");
-                    Cursor cursor = sqlLiteDB.retrieve();
-
-
-                    if (cursor.moveToFirst()) {
-                        do {
-
-
-
-                            Log.i("MainString",cursor.getString(1));
-
-                        }while (cursor.moveToNext());
-                    }
-                    toSpeech.speak(text,TextToSpeech.QUEUE_FLUSH,null);
-                }
-                break;
-            case R.id.button2:
-                if(toSpeech !=null)
-                {
-                    toSpeech.stop();
-                }
-                break;
-        }
-    }
 
     public void recordPython(View view)
     {
@@ -154,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hello, How can I help you?");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi");
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
@@ -174,10 +134,12 @@ public class MainActivity extends AppCompatActivity {
                     int totalNum = result.size() - 1;
                     if(catNumb==1)
                     {
+                        //sqlLiteDB.create(result.get(totalNum),"Python");
                         sqlLiteDB.update(1,result.get(totalNum),"Python");
                     }
                     else if(catNumb==2)
                     {
+                        //sqlLiteDB.create(result.get(totalNum),"Web");
                         sqlLiteDB.update(2,result.get(totalNum),"Web");
                     }
                     else if(catNumb==3)
